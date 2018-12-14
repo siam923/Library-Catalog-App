@@ -58,6 +58,6 @@ class Book(Base):
         }
 
 
-engine = create_engine('postgresql:///library.db')
+engine = create_engine('postgresql://catalog:password@localhost/catalog')
 
 Base.metadata.create_all(engine)
