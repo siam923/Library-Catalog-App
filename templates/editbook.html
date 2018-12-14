@@ -1,0 +1,59 @@
+{% extends "main.html" %}
+{% include "header.html" %}
+{% block content %}
+    <div class="container">
+
+
+    <div class="jumbotron jumbotron-fluid rounded mt-4" style="background:#1fb1aa;">
+        <h1 class="text-light text-sm-center">Edit Book</h1>
+    </div>
+
+    <form action="{{url_for('editBook',library_id=library_id,book_id=book.id)}}"
+              method='post' >
+            <dt>Name:</dt>
+                <dd><input type='text' size='30' name='name' placeholder='{{book.name}}'</dd>
+            <dt>Description:</dt>
+                <textarea name='description' rows='5' cols='40' placeholder='{{book.description}}'></textarea>
+            <dt>Price:</dt>
+                <dd><input type='text' size='8' name='price' placeholder='{{book.price}}'</dd>
+            <dt>Genre:</dt>
+
+                {% if book.genre == 'Fiction' %}
+                    <dd><input type ='radio' name='genre' value='Fiction' checked>Fiction</dd>
+                {%else%}
+                    <dd><input type ='radio' name='genre' value='Fiction'>Fiction</dd>
+                {%endif%}
+
+                {% if book.genre == 'Novel' %}
+                    <dd><input type ='radio' name='genre' value='Novel' checked>Novel</dd>
+                {%else%}
+                    <dd><input type ='radio' name='genre' value='Novel'>Novel</dd>
+                {%endif%}
+
+                {% if book.genre == 'Science' %}
+                    <dd><input type ='radio' name='genre' value='Science' checked>Science</dd>
+                {%else%}
+                    <dd><input type ='radio' name='genre' value='Science'>Science</dd>
+                {%endif%}
+
+                {% if book.genre == 'Romance' %}
+                    <dd><input type ='radio' name='genre' value='Romance' checked>Romance</dd>
+                {%else%}
+                    <dd><input type ='radio' name='genre' value='Romance'>Romance</dd>
+                {%endif%}
+
+                {% if book.genre == 'Mystery' %}
+                    <dd><input type ='radio' name='genre' value='Mystery' checked>Mystery</dd>
+                {%else%}
+                    <dd><input type ='radio' name='genre' value='Mystery'>Mystery</dd>
+                {%endif%}
+
+            
+            <div class="btn-group my-3">
+                <input type='submit' class="btn btn-outline-info" value='Edit'>
+                <a class="btn btn-light mx-3" href="{{url_for('showBook', library_id=library_id)}}">Cancel</a>
+            </div>
+        </form>
+        </div>
+
+{% endblock %}

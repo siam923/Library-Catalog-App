@@ -1,0 +1,16 @@
+.items{
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+.jumbotron{
+    background-image: url('jumbo.jpg');
+    background-size: cover;
+}
+
+.library-list{
+    background-color: #f8f9fa;
+    padding: 20px;
+}

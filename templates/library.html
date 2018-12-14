@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+{% include "header.html" %}
+{% block content %}
+
+
+
+        <!--Jumbotron-->
+        <div class = 'jumbotron jumbotron-fluid'>
+            <div class="container text-sm-center pt-5">
+                <h1 class='display-2 font-weight-bold text-light text-sm-center'>Library Catalog</h1>
+                <div class="btn mt-4"  aria-label="Callout buttons">
+                    <a class="btn btn-light btn-lg" href="{{url_for('newLibrary')}}">Add Library</a>
+                </div>
+            </div>
+        </div>
+
+        <!--flash-->>
+        <div class="flash">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                        <li><strong>{{message}}</strong></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+        <!--Libraies-->
+
+        <div class = "container pt-4 pb-5">
+            <h1  class="display-4 text-center my-5 text-muted">Libraies</h1>
+            {% for lib in libraries %}
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <a href="{{url_for('showBook', library_id = lib.id)}}"><h5 class="mb-1">{{lib.name}}</h5></a>
+                  <div class="ml-auto">
+                  <a href="{{url_for('editLibrary',library_id=lib.id)}}" class="badge badge-pill badge-info p-2">Edit</a>
+                  <a href="{{url_for('deleteLibrary',library_id=lib.id)}}" class="badge badge-pill badge-danger p-2">Delete</a>
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+          </ul>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+
+<div class="container pt-4">
+    <div class="jumbotron jumbotron-fluid rounded" style="background:#1fb1aa;">
+        <h1 class="text-light text-sm-center">Edit</h1>
+    </div>
+    <div >
+        <form action='#' method='post'>
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" size="30" name="name" class="form-control" placeholder="{{library.name}}">
+                <div class="btn-group my-3">
+                    <input type='submit' class="btn btn-outline-info" value='Edit'>
+                    <a class="btn btn-light mx-3" href="{{url_for('showLibraries')}}">Cancel</a>
+                </div>
+             </div>
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock %}

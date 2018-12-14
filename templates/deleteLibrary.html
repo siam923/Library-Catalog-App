@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="container">
+    <h2 class="pt-4 pb-4 text-info">Are you sure you want to delete {{library.name}}?</h2>
+
+    <form action='#' method='post'>
+        <input class="btn btn-danger btn-lg" type='submit' value='Delete'>
+        <a class="btn btn-light mx-3 btn-lg" href='{{url_for('showLibraries')}}'>Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container pt-4">
+    <div class="jumbotron jumbotron-fluid rounded" style="background:#1fb1aa;">
+        <h2 class="text-light text-sm-center">Add a new Book</h2>
+    </div>
+
+    <form action="{{url_for('newBook', library_id=library_id)}}" method="post">
+        <p>Name:</p>
+            <input type='text' size='30' name='name' required>
+        <p>Description</p>
+            <textarea name='description' rows='5' cols='40' required></textarea>
+        <p>Price:</p>
+            <input type='text' size='8' name='price' required>
+        <p>Genre:</p>
+            <p><input type ='radio' name='genre' value='Fiction' checked>Fiction</p>
+            <p><input type ='radio' name='genre' value='Novel'>Novel</p>
+            <p><input type ='radio' name='genre' value='Science'>Science</p>
+            <p><input type ='radio' name='genre' value='Romance'>Romance</p>
+            <p><input type ='radio' name='genre' value='Mystery'>Mystery</p>
+        <input type='submit' class="btn btn-outline-info d-block my-3" value='Create'>
+    </form>
+</div>
+{% endblock %}

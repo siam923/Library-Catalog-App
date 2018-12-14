@@ -1,0 +1,98 @@
+{% extends "main.html" %}
+{% include "publicheader.html" %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron jumbotron-fluid rounded mt-4" style="background:#1fb1aa;">
+        <div class="row ">
+            <div class="col-sm ml-4">
+                <h2 class="text-light">{{ library.name }}</h2>
+            </div>
+            <div class="col-sm-2 order-2 mr-4 ">
+                <img class="img-fluid  rounded-circle" height="80" width="80" src="{{creator.picture}}"
+                <p class="text-light">{{creator.name}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class = 'flash'>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li><strong>{{message}}</strong></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+
+
+
+    {% if books !=[] %}
+    <div class="row m-auto">
+        <div class="col-lg-4 p-2">
+            <h2>Science</h2>
+            {% for i in books %}
+                {% if i.genre =='Science' %}
+                <div class="items">
+                    <h3>{{i.name}}</h3>
+                    <p>{{i.description}}</p>
+                    <p>{{i.price}}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col-lg-4 p-2">
+            <h2>Novel</h2>
+            {% for i in books %}
+                {% if i.genre =='Novel' %}
+                <div class="items">
+                    <h3>{{i.name}}</h3>
+                    <p>{{i.description}}</p>
+                    <p>{{i.price}}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col-lg-4 p-2">
+            <h2>Fiction</h2>
+            {% for i in books %}
+                {% if i.genre =='Fiction' %}
+                <div class="items">
+                    <h3>{{i.name}}</h3>
+                    <p>{{i.description}}</p>
+                    <p>{{i.price}}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col-lg-4 p-2">
+            <h2>Romance</h2>
+            {% for i in books %}
+                {% if i.genre =='Romance' %}
+                <div class="items">
+                    <h3>{{i.name}}</h3>
+                    <p>{{i.description}}</p>
+                    <p>{{i.price}}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col-lg-4 p-2">
+            <h2>Mystery</h2>
+            {% for i in books %}
+                {% if i.genre =='Mystery' %}
+                <div class="items">
+                    <h3>{{i.name}}</h3>
+                    <p>{{i.description}}</p>
+                    <p>{{i.price}}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
