@@ -33,7 +33,7 @@ CLIENT_ID = json.loads(
 APPLICATION_NAME = 'Library app'
 
 # Connect to Database and create database session
-engine = create_engine('sqlite:///library.db')
+engine = create_engine('postgresql://catalog:password@localhost/catalog')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
